@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<!--- Become a Tutor --->
+<h4 class="text-center">Become a Tutor</h4>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-sm-6 col-md-3">
+            <form class="form-container border" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <h5>Your basic information</h5>
+                    <label for="email">Email address:</label>
+                    <input type="email" name="em" class="form-control" placeholder="Enter email" id="email">
+                    <label for="pwd">Password:</label>
+                    <input type="password" name="pw" class="form-control" placeholder="Enter password" id="pwd">
+                    <label for="cpwd">Confirm Password:</label>
+                    <input type="password" class="form-control" name="cpw" placeholder="Re-enter password" id="cpwd">
+                    <label for="fn">First Name:</label>
+                    <input type="text" class="form-control" id="fn" placeholder="Enter first name" name="fn">
+                    <label for="ln">Last Name:</label>
+                    <input type="text" class="form-control" id="ln" placeholder="Enter last name" name="ln">
+                    <label for="un">Username:</label>
+                    <input type="text" class="form-control" id="un" placeholder="Enter user name" name="un">
+                    <label for="phn">Contact Number:</label>
+                    <input type="tel" name="ph" class="form-control" placeholder="Example: 9841585654" id="phn">
+                </div>
+
+        </div>
+
+        <div class="col-sm-6 col-md-3">
+
+                <div class="form-group">
+                    <h5>A little more about you</h5>
+                    <div class="form-group">
+                        <label> Subject </label>
+                        <input type="text" name="subject" class="form-control" required placeholder="Enter subject">
+                    </div>
+                    <p>I am a:</p>
+                    <input type="radio" value="Male" id="defaultRadio" name="gender">
+                    <label for="defaultRadio">Male</label>
+                    <input type="radio" value="Female" id="defaultRadios" name="gender">
+                    <label for="defaultRadios">Female</label>
+                    <p>I am from:</p>
+                    <select name="place" class="custom-select-sm">
+                        <option value="kathmandu" selected>Kathmandu</option>
+                        <option value="Bhaktapur">Bhaktapur</option>
+                        <option value="Lalitpur">Lalitpur</option>
+<!--                        <option value>Biratnagar</option>-->
+<!--                        <option value>Birgunj</option>-->
+<!--                        <option value>Butwal</option>-->
+<!--                        <option value>Dhangadhi</option>-->
+<!--                        <option value>Hetauda</option>-->
+<!--                        <option value>Janakpur</option>-->
+<!--                        <option value>Mahendranagar</option>-->
+<!--                        <option value>Narayanghat</option>-->
+<!--                        <option value>Nepalgunj</option>-->
+<!--                        <option value>Pokhara</option>-->
+                    </select>
+                    <p>I have teaching experience of:</p>
+                    <select name="experience" class="custom-select-sm">
+                        <option selected>- Select a value -</option>
+                        <option value="Not Yet">Not Yet</option>
+                        <option value="1 Years">1 Years</option>
+                        <option value="2 Years">2 Years</option>
+<!--                        <option value>3 Years</option>-->
+<!--                        <option value>4 Years</option>-->
+<!--                        <option value>5 Years</option>-->
+<!--                        <option value>6 Years</option>-->
+<!--                        <option value>7 Years</option>-->
+<!--                        <option value>8 Years</option>-->
+<!--                        <option value>9 Years</option>-->
+<!--                        <option value>10 Years</option>-->
+<!--                        <option value>10+ Years</option>-->
+                    </select>
+                    <p>I prefer teaching at:</p>
+                    <select name="prefer" class="custom-select-sm">
+                        <option selected="selected">Student's home</option>
+                        <option value="My own Place">My own place</option>
+                        <option value="Student's home or My own place">Student's home or My own place</option>
+                    </select><br>
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 col-xl-3">
+            <div class="container mt-3">
+
+                    <h5>Profile Picture:</h5>
+                    <input type="file" id="myFile" class="form-control-file" required  name="img">
+
+            </div>
+            <div class="supbtn">
+                <input type="submit" name="tutor" value="Tutor Register" class="btn btn-outline-secondary btn-block">
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

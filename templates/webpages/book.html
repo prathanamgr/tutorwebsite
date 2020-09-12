@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!-- body -->
+<div class="container-fluid tutiton-cards">
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        {% for i in ums %}
+        <div class="col-md-4">
+            <div class="card tutors">
+                <div class="card-body">
+                    <h6 class="card-title">{{ i.user.first_name }} {{ i.user.last_name }}</h6>
+                    <img src="{{ i.profile.url }}"
+                         class="img-thumbnail teachersimg">
+                    <p class="card-text"><b> Subject: </b>{{ i.subject }}</p>
+                    <p class="card-text"><b> Experience: </b>{{ i.experience }}</p>
+                    <p class="card-text"><b> Prefer: </b>{{ i.prefer }}</p>
+                    <button data-target="#book{{ i.id }}" data-toggle="modal"
+                            class="btn btn-outline-secondary btn-block">Book me
+                    </button>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal fade" id="book{{ i.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Book {{ i.user.first_name }} {{ i.user.last_name }}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="id" value="{{ i.user.id }}">
+                            <div class="form-group">
+                                <label> Message </label>
+                                <textarea name="msg" class="form-control"></textarea>
+                            </div>
+                            <input type="submit" name="msgs" value="Send" class="btn btn-primary" >
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="col-md-4">
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

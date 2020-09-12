@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Carousel -->
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/1.jpg' %}">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/2.jpg' %}">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'img/3.jpg' %}">
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+<!--- Jumbotron --->
+<div class="container-fluid">
+    <div class="row jumbotron">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-sm-6 col-md-3">
+                    <form class="form-container" method="post">
+                        <p class="text-center"> Search By Subject or teacher name </p>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label> Subject</label>
+                            <input type="text" name="subject" class="form-control" required>
+                        </div>
+                        <input type="submit" name="search" class="btn btn-primary" value="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Social -->
+<div class="container-fluid">
+    <div class="row text-center">
+        <div class="col-12">
+            <h2>Follow Us Online</h2>
+        </div>
+        <div class="col-12 social">
+            <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

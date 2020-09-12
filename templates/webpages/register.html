@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!--- sign up --->
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-sm-6 col-md-3">
+			<h4 class="text-center">Student Register</h4>
+			<form class="form-container" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+			    <label for="fn">First name:</label>
+			    <input type="text" class="form-control" name="fn" placeholder="Enter first name" id="fn">
+			  </div>
+                <div class="form-group">
+			    <label for="ln">Last name:</label>
+			    <input type="text" class="form-control" name="ln" placeholder="Enter last name" id="ln">
+			  </div>
+                <div class="form-group">
+			    <label for="un">Username:</label>
+			    <input type="text" class="form-control" name="un" placeholder="Enter username" id="un">
+			  </div>
+			  <div class="form-group">
+			    <label for="email">Email address:</label>
+			    <input type="email" class="form-control" name="em" placeholder="Enter email" id="email">
+			  </div>
+			  <div class="form-group">
+			    <label for="pwd">Password:</label>
+			    <input type="password" class="form-control" name="pw" placeholder="Enter password" id="pwd">
+			  </div>
+			  <div>
+			    <label for="cpwd">Confirm Password:</label>
+			    <input type="password" class="form-control" name="cpw" placeholder="Re-enter password" id="cpwd">
+			  </div>
+			  <div>
+			    <label for="phn">Contact Number:</label>
+			    <input type="tel" class="form-control" name="ph" placeholder="Example: 9841585654" id="phn">
+			  </div>
+			<div class="supbtn">
+			  <input type="submit" name="registerStudent" value="Register" class="btn btn-outline-secondary btn-block">
+			</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

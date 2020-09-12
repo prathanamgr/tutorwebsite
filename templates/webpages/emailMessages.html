@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <style>
+        body
+        {
+            margin:0px;
+            padding:0px;
+            font-family:verdana;
+            font-size:14px;
+            color:#00A980;
+        }
+        .wrapper
+        {
+            width:100%;
+            height:500px;
+            background:#C3F0E1;
+            overflow:hidden;
+            padding:5px;
+            border-radius:10px;
+        }
+        .intro
+        {
+            text-align:center;
+            font-size:25px;
+            text-shadow:2px 2px 2px black;
+        }
+        .contents
+        {
+            background:rgb(245,245,245);
+            width:100%;
+            height:370px;
+              border-radius:10px;
+
+        }
+         .contentss
+        {
+            background:rgb(245,245,245);
+            width:100%;
+            height:200px;
+              border-radius:10px;
+
+        }
+        .greeting
+        {
+            font-family:cambria;
+            font-weight:bolder;
+            margin-left:15px;
+            font-size:23px;
+            padding:6px;
+            color:gray;
+            margin-top:0px;
+            margin-bottom:0px;
+        }
+        .headings
+        {
+            margin-left:15px;
+            font-size:25px;
+            font-weight:bolder;
+            margin-bottom:5px;
+            padding-top:15px;
+            color:#303952;
+            text-align:center;
+            margin-top:0px;
+        }
+        .info
+        {
+            margin-left:19px;
+            color:gray;
+
+        }
+        .myCode
+        {
+            width:70px;
+            height:30px;
+            border:1px solid gray;
+            margin-left:18px;
+
+            border-radius:5px;
+        }
+
+
+    </style>
+</head>
+<body>
+{% if usage == 'msg' %}
+<div class="wrapper col-6">
+    <h5 class="intro"> Easyedu </h5>
+    <div class="contents">
+        <h5 class="headings"> {{ heading }} </h5>
+        <h6 class="greeting">  {{ greeting }} </h6>
+        <p class="info"> {{ message }}  </p>
+        <p class="info"><b>Student Email:</b> {{ email }}  </p>
+        <p class="info"><b>Phone Number:</b> {{ ph }}  </p>
+
+
+        <p style="text-align:center; font-weight:bolder;"> -Easyedu </p>
+    </div>
+
+</div>
+
+
+{% endif %}
+</body>
+</html>

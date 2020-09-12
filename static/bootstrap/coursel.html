@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	
+	<script src="jquery.js"></script>
+	
+	<style>
+		.a{
+		background: blue;
+		height: 300px;
+		}
+		.b{
+		position: relative;
+		background: grey;
+		height: 300px;
+		z-index: 1;
+		}
+		.b button{
+		margin: 130px auto;
+		}
+		.mydiv{
+		background: green;
+		width: 30%;
+		height: 260px;
+		margin: 20px 10px;
+		float: left;
+		position: relative;
+		z-index: 0;
+		}
+		#mydiv4,#mydiv5,#mydiv6{
+		display: none;
+		}
+		
+	</style>
+	
+  </head>
+  
+  <body>
+	<div class="container-fluid">
+		<div class="row a">
+		
+			<div class="col-lg-1 b">
+			<button type="button" class="btn btn-success" id="prev"> &lt;&lt; </button>
+			</div>
+			
+			<div class="col-lg-10 c">
+			<div class="mydiv" id="mydiv1">1</div>
+			<div class="mydiv" id="mydiv2">2</div>
+			<div class="mydiv" id="mydiv3">3</div>
+			<div class="mydiv" id="mydiv4">4</div>
+			<div class="mydiv" id="mydiv5">5</div>
+			<div class="mydiv" id="mydiv6">6</div>
+			</div>
+			
+			<div class="col-lg-1 b">
+			<button type="button" class="btn btn-success" id="next"> &gt;&gt; </button>
+			</div>
+			
+		</div>
+	</div>
+	
+	<script>
+	$(document).ready(function(){
+		var i = 1;
+		
+		$("#next").click(function(){
+		onNext(i);
+		i++;
+		});
+	});
+	
+	function onNext(i){
+	$("#mydiv"+ i).animate({left:"-35%"},2000,function(){
+		$("#mydiv"+ i).hide();
+		});
+		$("#mydiv"+ (i+1)).animate({left:"-35%"},2000,function(){
+		$("#mydiv"+ (i+1)).css("left","1%");
+		});
+		$("#mydiv"+ (i+2)).animate({left:"-35%"},2000,function(){
+		$("#mydiv"+ (i+2)).css("left","1%");
+		$("#mydiv"+ (i+3)).show();
+		});
+	}
+	</script>
+  </body>
+  
+</html>

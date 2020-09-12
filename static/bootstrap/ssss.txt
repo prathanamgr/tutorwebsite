@@ -1,0 +1,1 @@
+stm.execute("insert into student values(2,'Mohan')");

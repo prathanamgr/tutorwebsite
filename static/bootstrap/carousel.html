@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel</title>
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <script src="jquery.js"></script>
+
+    <style>
+        .cor {
+            background: blue;
+            height: 300px;
+        }
+        
+        #prev,
+        #next {
+            margin: 120px auto;
+        }
+        
+        .mydiv {
+            position: relative;
+            background: brown;
+            width: 30%;
+            height: 90%;
+            float: left;
+            margin: 15px 15px;
+            z-index: 0;
+        }
+        
+        #mydiv4,
+        #mydiv5,
+        #mydiv6 {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row" style="background:grey;position:relative;">
+            <div class="col-lg-1" style="background:grey;position:relative;z-index:1;">
+                <button type="button" id="prev" class="btn btn-info"> &lt;&lt;</button>
+            </div>
+            <div class="col-lg-10 cor">
+
+                <div id="mydiv1" class="mydiv">1</div>
+                <div id="mydiv2" class="mydiv">2</div>
+                <div id="mydiv3" class="mydiv">3</div>
+                <div id="mydiv4" class="mydiv">4</div>
+                <div id="mydiv5" class="mydiv">5</div>
+                <div id="mydiv6" class="mydiv">6</div>
+
+                <script>
+                    $(document).ready(function() {
+                        $("#next").click(function() {
+                            $("#mydiv1").animate({
+                                left: "-30%"
+                            }, 2000, function() {
+                                $("#mydiv1").hide();
+                            });
+                            $("#mydiv2").animate({
+                                left: "-30%"
+                            }, 2000, function() {
+                                $("#mydiv2").css("left", "1%");
+                            });
+                            $("#mydiv3").animate({
+                                left: "-30%"
+                            }, 2000, function() {
+                                $("#mydiv3").css("left", "1%");
+                                $("#mydiv4").fadeIn();
+                            });
+                        });
+                    });
+                </script>
+
+            </div>
+            <div class="col-lg-1">
+                <button type="button" id="next" class="btn btn-info"> &gt;&gt;</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
